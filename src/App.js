@@ -9,13 +9,13 @@ function App() {
     const [taskData, setTaskData] = useState([]);
     const noteData = (note) => {
         setTaskData([...taskData, note]);
-        // console.log(note);
+        console.log(note);
     };
     return (
         <div className="App">
             <Header />
             <Form passNoteData={noteData} />
-            <Task />
+            <Task passTaskData={taskData} />
             <Footer />
         </div>
     );
