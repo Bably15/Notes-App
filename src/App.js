@@ -9,13 +9,18 @@ function App() {
     const [taskData, setTaskData] = useState([]);
     const noteData = (note) => {
         setTaskData([...taskData, note]);
-        console.log(note);
+    };
+    const deleteNote = (deleteNoteData) => {
+        const noteDeleted = taskData.filter(
+            (task) => deleteNoteData !== task.id
+        );
+        setTaskData(noteDeleted);
     };
     return (
         <div className="App">
             <Header />
             <Form passNoteData={noteData} />
-            <Task passTaskData={taskData} />
+            <Task passTaskData={taskData} passDeleteNote={deleteNote} />
             <Footer />
         </div>
     );

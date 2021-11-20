@@ -3,7 +3,10 @@ import { Card, Grid, Container, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Task = (props) => {
-    const { passTaskData } = props;
+    const { passTaskData, passDeleteNote } = props;
+    const deleteNote = (taskID) => {
+        passDeleteNote(taskID);
+    };
     return (
         <Container sx={{ marginTop: "2rem" }}>
             <Grid container spacing={2}>
@@ -20,7 +23,10 @@ const Task = (props) => {
                                 <div>{task.title}</div>
                                 <span>{task.content}</span>
                             </div>
-                            <Button sx={{ color: "red" }}>
+                            <Button
+                                onClick={() => deleteNote(task.id)}
+                                sx={{ color: "red" }}
+                            >
                                 <DeleteIcon />
                             </Button>
                         </Card>

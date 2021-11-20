@@ -25,7 +25,9 @@ const Form = (props) => {
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
+        formData.id = Math.floor(Math.random() * 100);
         passNoteData(formData);
+        setFormData({ title: "", content: "" });
     };
     return (
         <Container sx={{ marginTop: "3rem" }}>
