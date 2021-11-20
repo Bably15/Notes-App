@@ -1,25 +1,33 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import Grid from "@mui/material/Grid";
+import { Card, Grid, Container, Button } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Task = (props) => {
     const { passTaskData } = props;
     return (
-        <Grid container spacing={2} sx={{ margin: "30px" }}>
-            <Grid
-                item
-                xs={4}
-                display="inline-flex"
-                justifyContent="space-between"
-            >
+        <Container sx={{ marginTop: "2rem" }}>
+            <Grid container spacing={2}>
                 {passTaskData.map((task) => (
-                    <Card sx={{ padding: "50px" }}>
-                        <div>{task.title}</div>
-                        {task.content}
-                    </Card>
+                    <Grid item xs={4}>
+                        <Card
+                            sx={{
+                                padding: "50px",
+                                display: "flex",
+                                justifyContent: "space-between",
+                            }}
+                        >
+                            <div>
+                                <div>{task.title}</div>
+                                <span>{task.content}</span>
+                            </div>
+                            <Button sx={{ color: "red" }}>
+                                <DeleteIcon />
+                            </Button>
+                        </Card>
+                    </Grid>
                 ))}
             </Grid>
-        </Grid>
+        </Container>
     );
 };
 export default Task;

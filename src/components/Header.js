@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 
 const Header = () => {
     return (
-        <Paper elevation={3} sx={{ padding: "30px" }}>
+        <Paper elevation={3} sx={{ padding: "30px", display: "flex" }}>
             REACT NOTES APP
         </Paper>
     );
